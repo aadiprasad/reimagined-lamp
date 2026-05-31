@@ -1,0 +1,56 @@
+{
+  "updatedAt": "2026-05-31T09:16:28.529Z",
+  "totalCount": 3,
+  "tags": [
+    "Aesthetics",
+    "Canvas",
+    "Clock",
+    "Creative Coding",
+    "Interactive",
+    "Neon",
+    "Widget"
+  ],
+  "submissions": [
+    {
+      "folderName": "alex-rivera",
+      "path": "contributors/alex-rivera/index.html",
+      "hasIndex": true,
+      "author": "Alex Rivera",
+      "title": "Cyberpunk Neon Clock",
+      "description": "A dark themed digital clock with glowing neon aesthetics and interactive visual effects.",
+      "tags": [
+        "Clock",
+        "Neon",
+        "Widget",
+        "Aesthetics"
+      ],
+      "github": "alexrivera"
+    },
+    {
+      "folderName": "hshankar08",
+      "path": "contributors/hshankar08/index.html",
+      "hasIndex": true,
+      "author": "Hari Shankar",
+      "title": "Doki Doki Waku Waku 3000",
+      "description": "Shut up. Baka.",
+      "tags": [
+        "Interactive"
+      ],
+      "github": "hshankar08"
+    },
+    {
+      "folderName": "jane-doe",
+      "path": "contributors/jane-doe/index.html",
+      "hasIndex": true,
+      "author": "Jane Doe",
+      "title": "Interactive Particle Field",
+      "description": "An interactive WebGL-like canvas particle field that reacts to mouse hover and click explosions.",
+      "tags": [
+        "Canvas",
+        "Interactive",
+        "Creative Coding"
+      ],
+      "github": "janedoe"
+    }
+  ]
+}
