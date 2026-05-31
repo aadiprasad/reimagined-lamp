@@ -6,22 +6,17 @@ The main landing page is a dynamic, modern dashboard built with a premium glassm
 
 ---
 
-## 🚀 How It Works
-
-This codebase is **completely free of NPM package manager overhead** (no `node_modules`, no complex installations). It relies on:
-1. **A Vanilla Node.js Builder (`build.js`):** Uses standard library filesystem modules to scan the `contributors/` directory and compile a registry in `data/contributors.json`.
-2. **GitHub Actions Workflow:** Automatically runs this builder and deploys the entire website to **GitHub Pages** on every push to the `main` branch.
-
----
-
 ## 🛠️ How to Contribute
 
 Adding your page to the showcase takes less than 5 minutes. Follow these simple steps:
 
 ### 1. Create Your Sub-folder
 1. Clone this repository to your local machine.
-2. In the `contributors/` directory, duplicate the template folder `_template/` and rename it to your preferred workspace name (e.g., `jane-doe` or `particles-effect`).
-   > ⚠️ **Important:** Do not modify the original `_template/` folder directly.
+2. In the `contributors/` directory, duplicate one of the template folders:
+   - `_template/` — For interactive web apps, canvases, or widgets.
+   - `_template-blog/` — For clean, readable blog posts and articles.
+   Rename the copy to your preferred namespace (e.g., `jane-doe` or `particles-effect`).
+   > ⚠️ **Important:** Do not modify the original template folders directly.
 
 ### 2. Configure Your Metadata
 Open your new folder and locate `metadata.json`. Fill out your project's properties:
@@ -50,6 +45,31 @@ You can add image assets, sub-folders, or standard assets directly within your o
 
 ---
 
+### 📝 Alternate Option: Generate Blog Post from Markdown
+
+If you want to contribute a blog post or text article, you don't need to write HTML! You can write a standard markdown file with front-matter metadata and generate the page automatically:
+
+1. Create a markdown file anywhere (e.g., `my-post.md`).
+2. Add front-matter metadata at the very top:
+   ```markdown
+   ---
+   author: Jane Doe
+   title: Unlocking CSS Grid
+   description: A short description of the post.
+   tags: CSS, Grid, Responsive
+   github: janedoe
+   ---
+   # Unlocking CSS Grid
+   Your markdown body content here...
+   ```
+3. Run the generator script:
+   ```bash
+   node create-blog.js my-post.md [custom-folder-name]
+   ```
+This script will parse your markdown, compile the body into semantic HTML, clone the blog stylesheet and interactive script assets, write the `metadata.json` registry file, create the folder inside `contributors/`, and automatically rebuild the showcase registry so your post shows up in the hub immediately!
+
+---
+
 ## 💻 Local Development & Testing
 
 To test your page and see how it displays on the main dashboard before making a Git commit:
@@ -71,9 +91,3 @@ To test your page and see how it displays on the main dashboard before making a 
 
 3. **Verify:**
    Open the site in your browser. Ensure your card is displayed in the grid, your tags filter correctly, your search matches, and the launch button successfully loads your sub-page.
-
----
-
-## 🌐 Automatic Deployment
-
-You don't need to commit the generated `data/contributors.json` to the repo! The GitHub Actions workflow in `.github/workflows/deploy.yml` takes care of running `node build.js` on the cloud runner and publishing the output directly to **GitHub Pages** whenever code is merged to `main`.

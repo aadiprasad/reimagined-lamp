@@ -1,16 +1,35 @@
 {
-  "updatedAt": "2026-05-31T09:16:28.529Z",
-  "totalCount": 3,
+  "updatedAt": "2026-05-31T15:00:13.947Z",
+  "totalCount": 4,
   "tags": [
     "Aesthetics",
     "Canvas",
     "Clock",
+    "Compilers",
     "Creative Coding",
     "Interactive",
+    "JavaScript",
+    "Markdown",
     "Neon",
+    "Node.js",
     "Widget"
   ],
   "submissions": [
+    {
+      "folderName": "creating-markdown-parsers-in-nodejs",
+      "path": "contributors/creating-markdown-parsers-in-nodejs/index.html",
+      "hasIndex": true,
+      "author": "Hari Shankar",
+      "title": "Creating Markdown Parsers in Node.js",
+      "description": "A look at how to build a regex-based lightweight markdown compiler in vanilla JavaScript.",
+      "tags": [
+        "Node.js",
+        "Markdown",
+        "JavaScript",
+        "Compilers"
+      ],
+      "github": "hshankar08"
+    },
     {
       "folderName": "alex-rivera",
       "path": "contributors/alex-rivera/index.html",

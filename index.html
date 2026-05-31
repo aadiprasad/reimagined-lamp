@@ -1,31 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Co-Lab: Contributor Showcase Portal</title>
-  
+
   <!-- SEO Meta Tags -->
-  <meta name="description" content="A modern showcase dashboard highlighting unique custom HTML, CSS, and JS landing pages created by individual collaborative contributors.">
-  <meta name="keywords" content="frontend showcase, multi-page collaborative website, html5, css3, vanilla javascript, developer portfolio">
+  <meta name="description"
+    content="A modern showcase dashboard highlighting unique custom HTML, CSS, and JS landing pages created by individual collaborative contributors.">
+  <meta name="keywords"
+    content="frontend showcase, multi-page collaborative website, html5, css3, vanilla javascript, developer portfolio">
   <meta name="author" content="Co-Lab Team">
-  
+
   <!-- Open Graph -->
   <meta property="og:title" content="Co-Lab Showcase Hub">
-  <meta property="og:description" content="Explore custom landing pages and creative widgets built by developers in our open-source collaboration project.">
+  <meta property="og:description"
+    content="Explore custom landing pages and creative widgets built by developers in our open-source collaboration project.">
   <meta property="og:type" content="website">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
 
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
-  
+
   <!-- Stylesheets -->
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="dark-theme">
   <!-- Glowing Background Orbs -->
   <div class="glow-orb orb-1"></div>
@@ -85,11 +91,12 @@
 
     <!-- Main Content Section -->
     <main class="dashboard-content">
-      
+
       <!-- Hero Banner -->
       <section class="hero-section">
         <h2>A Shared Space for Frontend Experiments</h2>
-        <p>Browse through unique interactive landing pages, widgets, and creative coding visualizer cards created by our developers. Each page lives in its own subdirectory with custom styles and scripts.</p>
+        <p>Browse through unique interactive landing pages, widgets, and creative coding visualizer cards created by our
+          developers. Each page lives in its own subdirectory with custom styles and scripts.</p>
         <a href="#contributions-grid" class="scroll-down-btn" aria-label="Scroll to projects">
           <span>Explore Subpages</span>
           <i data-lucide="chevron-down"></i>
@@ -100,7 +107,8 @@
       <section class="dashboard-controls">
         <div class="search-bar-wrapper">
           <i data-lucide="search" class="search-icon"></i>
-          <input type="text" id="search-input" placeholder="Search by project title, developer, or keyword..." aria-label="Search pages">
+          <input type="text" id="search-input" placeholder="Search by project title, developer, or keyword..."
+            aria-label="Search pages">
           <button id="clear-search" class="clear-btn" aria-label="Clear search">
             <i data-lucide="x"></i>
           </button>
@@ -145,7 +153,7 @@
     <!-- Footer Section -->
     <footer class="main-footer">
       <div class="footer-content">
-        <p>&copy; 2026 <strong>Co-Lab Collaborative Showcase</strong>. All rights reserved.</p>
+        <p>Made with 💖 for the "Best Person Ever"</p>
         <div class="footer-links">
           <a href="#how-to-contribute" class="footer-link-trigger" id="contribute-rules-link">How to Contribute</a>
           <span class="bullet">&bull;</span>
@@ -176,31 +184,38 @@
           <li>
             <div class="step-num">2</div>
             <div class="step-content">
-              <strong>Create a folder:</strong> Duplicate the template folder <code>contributors/_template/</code> and rename it to your preferred namespace (e.g. <code>contributors/your-name/</code>).
+              <strong>Create a folder:</strong> Duplicate one of our template folders:
+              <code>contributors/_template/</code> (for app/widget pages) or <code>contributors/_template-blog/</code>
+              (for blog articles), and rename it to your preferred namespace (e.g.
+              <code>contributors/your-name/</code>).
             </div>
           </li>
           <li>
             <div class="step-num">3</div>
             <div class="step-content">
-              <strong>Customize content:</strong> Edit your <code>index.html</code>, <code>style.css</code>, and <code>script.js</code> files inside your new folder. Add all assets locally.
+              <strong>Customize content:</strong> Edit your <code>index.html</code>, <code>style.css</code>, and
+              <code>script.js</code> files inside your new folder. Add all assets locally.
             </div>
           </li>
           <li>
             <div class="step-num">4</div>
             <div class="step-content">
-              <strong>Fill out Metadata:</strong> Open your folder's <code>metadata.json</code> and set your author name, project title, tags, description, and GitHub user.
+              <strong>Fill out Metadata:</strong> Open your folder's <code>metadata.json</code> and set your author
+              name, project title, tags, description, and GitHub user.
             </div>
           </li>
           <li>
             <div class="step-num">5</div>
             <div class="step-content">
-              <strong>Commit and Push:</strong> Commit your directory. On push, GitHub Actions will automatically scan your files, compile the list, and deploy the updated showcase to the web!
+              <strong>Commit and Push:</strong> Commit your directory. On push, GitHub Actions will automatically scan
+              your files, compile the list, and deploy the updated showcase to the web!
             </div>
           </li>
         </ol>
         <div class="modal-note">
           <i data-lucide="info"></i>
-          <span>To preview your submission locally before pushing, run <code>node build.js</code> in your terminal to compile the index, then open the landing page.</span>
+          <span>To preview your submission locally before pushing, run <code>node build.js</code> in your terminal to
+            compile the index, then open the landing page.</span>
         </div>
       </div>
     </div>
@@ -209,4 +224,5 @@
   <!-- Main JavaScript File -->
   <script src="app.js"></script>
 </body>
+
 </html>
