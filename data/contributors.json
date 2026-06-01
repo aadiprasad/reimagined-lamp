@@ -1,61 +1,32 @@
 {
-  "updatedAt": "2026-06-01T15:30:41.632Z",
-  "totalCount": 3,
+  "updatedAt": "2026-06-01T15:42:32.901Z",
+  "totalCount": 2,
   "tags": [
-    "AO3 Replica",
-    "Aesthetics",
-    "Canvas",
-    "Clock",
-    "Creative Coding",
     "Fanfiction",
-    "Interactive",
-    "Interactive UI",
-    "Jujutsu Kaisen",
-    "Neon",
-    "Widget"
+    "spcrc-wannabe"
   ],
   "submissions": [
     {
-      "folderName": "alex-rivera",
-      "path": "contributors/alex-rivera/index.html",
+      "folderName": "harshvardhan-pandey",
+      "path": "contributors/harshvardhan-pandey/index.html",
       "hasIndex": true,
-      "author": "Alex Rivera",
-      "title": "Cyberpunk Neon Clock",
-      "description": "A dark themed digital clock with glowing neon aesthetics and interactive visual effects.",
+      "author": "Harshvardhan Pandey",
+      "title": "Crippled Woman",
+      "description": "Have you started tax evasion yet?",
       "tags": [
-        "Clock",
-        "Neon",
-        "Widget",
-        "Aesthetics"
+        "spcrc-wannabe"
       ],
-      "github": "alexrivera"
-    },
-    {
-      "folderName": "jane-doe",
-      "path": "contributors/jane-doe/index.html",
-      "hasIndex": true,
-      "author": "Jane Doe",
-      "title": "Interactive Particle Field",
-      "description": "An interactive WebGL-like canvas particle field that reacts to mouse hover and click explosions.",
-      "tags": [
-        "Canvas",
-        "Interactive",
-        "Creative Coding"
-      ],
-      "github": "janedoe"
+      "github": "harshvardhan-pandey"
     },
     {
       "folderName": "harishankar08",
       "path": "contributors/harishankar08/index.html",
       "hasIndex": true,
       "author": "Hari Shankar",
-      "title": "To Debate a Zenin (AO3 Replica)",
-      "description": "An Archive of Our Own (AO3) story page replication featuring the Jujutsu Kaisen fanfiction 'To Debate a Zenin'. Built with interactive Kudos, a Comments drawer, and responsive layouts.",
+      "title": "Doki Doki Waku Waku 3000",
+      "description": "Shut up. Baka.",
       "tags": [
-        "AO3 Replica",
-        "Fanfiction",
-        "Interactive UI",
-        "Jujutsu Kaisen"
+        "Fanfiction"
       ],
       "github": "HariShankar08"
     }
