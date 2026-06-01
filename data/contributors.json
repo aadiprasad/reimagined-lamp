@@ -1,8 +1,10 @@
 {
-  "updatedAt": "2026-06-01T15:42:32.901Z",
-  "totalCount": 2,
+  "updatedAt": "2026-06-01T16:43:39.859Z",
+  "totalCount": 3,
   "tags": [
+    "Blog",
     "Fanfiction",
+    "Images",
     "spcrc-wannabe"
   ],
   "submissions": [
@@ -29,6 +31,19 @@
         "Fanfiction"
       ],
       "github": "HariShankar08"
+    },
+    {
+      "folderName": "kavin-aravindan",
+      "path": "contributors/kavin-aravindan/index.html",
+      "hasIndex": true,
+      "author": "Kavin Aravindan",
+      "title": "Kavin's Image Blog",
+      "description": "A personal image-friendly blog page for photos, captions, and short notes.",
+      "tags": [
+        "Images",
+        "Blog"
+      ],
+      "github": "kavin-aravindan"
     }
   ]
 }
