@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A minimal vim-style terminal showcasing a scrollable C node struct with malloc, by Chinmay Sharma.">
+  <title>happy birthday lol</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- ╔══════════════════════════════════════╗ -->
+  <!-- ║  Back link — kept outside vim frame  ║ -->
+  <!-- ╚══════════════════════════════════════╝ -->
+  <div class="hub-bar">
+    <a href="../../index.html" class="back-link">← Back to Hub</a>
+    <span class="hub-author">chinmay-sharma</span>
+  </div>
+
+  <!-- ╔══════════════════════════════════════╗ -->
+  <!-- ║         Vim terminal window          ║ -->
+  <!-- ╚══════════════════════════════════════╝ -->
+  <div class="vim-window" id="vim-window" role="main" aria-label="Vim terminal emulator">
+
+    <!-- Title bar (like a terminal title bar) -->
+    <div class="vim-titlebar" aria-hidden="true">
+      <span class="dot dot-close"></span>
+      <span class="dot dot-min"></span>
+      <span class="dot dot-max"></span>
+      <span class="vim-filename">node.c &nbsp;[+]</span>
+      <button class="run-btn" id="run-btn" title="Run program">▶ Run</button>
+    </div>
+
+    <!-- Editor chrome: line numbers + scrollable code pane -->
+    <div class="vim-editor" id="vim-editor">
+
+      <!-- Static line-number gutter -->
+      <div class="vim-gutter" id="vim-gutter" aria-hidden="true"></div>
+
+      <!-- Scrollable code area -->
+      <div class="vim-code" id="vim-code" tabindex="0" role="region" aria-label="Scrollable C source code">
+        <pre id="vim-pre"></pre>
+      </div>
+    </div>
+
+    <!-- Output pane (hidden until Run is clicked) -->
+    <div class="vim-output" id="vim-output" aria-live="polite" aria-label="Program output">
+      <div class="output-header">
+        <span class="output-label">$ gcc node.c -o node &amp;&amp; ./node</span>
+        <button class="output-close" id="output-close" title="Close output">✕</button>
+      </div>
+      <pre id="output-pre"></pre>
+    </div>
+
+    <!-- Status / mode line -->
+    <div class="vim-statusline" aria-live="polite">
+      <span class="mode-tag" id="mode-tag">NORMAL</span>
+      <span class="status-file">node.c</span>
+      <span class="status-right">
+        <span id="line-indicator">1,1</span>&nbsp;&nbsp;All
+      </span>
+    </div>
+
+    <!-- Command line (Vim's `:` bar) -->
+    <div class="vim-cmdline" aria-hidden="true">
+      <span id="vim-cmd">:set number | syntax on</span><span class="cursor-block" id="cmd-cursor">█</span>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

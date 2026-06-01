@@ -145,9 +145,10 @@ function renderCards(items) {
   elements.grid.innerHTML = items.map(item => {
     // Generate avatar layout
     let avatarHTML = '';
-    if (item.github) {
+    const avatarSrc = item.avatar || (item.github ? `https://github.com/${item.github}.png` : '');
+    if (avatarSrc) {
       avatarHTML = `
-        <img class="avatar-img" src="https://github.com/${item.github}.png" 
+        <img class="avatar-img" src="${avatarSrc}" 
              alt="${item.author} Profile" onerror="this.outerHTML='<span class=\\'avatar-placeholder\\'>${getInitials(item.author)}</span>'">
       `;
     } else {
