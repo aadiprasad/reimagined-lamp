@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello Vaishnavi</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Reading Progress Bar -->
+  <div id="progress-bar-container">
+    <div id="progress-bar"></div>
+  </div>
+
+  <div class="blog-wrapper">
+    <!-- Header Navigation -->
+    <header class="blog-header">
+      <a href="../../index.html" class="back-link">
+        <i data-lucide="arrow-left"></i>
+        <span>Back to Hub</span>
+      </a>
+      <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark/light theme">
+        <i data-lucide="sun" class="sun-icon"></i>
+        <i data-lucide="moon" class="moon-icon"></i>
+      </button>
+    </header>
+
+    <!-- Main Article -->
+    <main>
+      <article class="post">
+
+        <!-- Post Header -->
+        <header class="post-header">
+          <div class="post-meta-top">
+            <span class="category-tag">CCNSB</span>
+            <span class="divider">&bull;</span>
+            <span class="read-time"><i data-lucide="clock"></i> 4 min read</span>
+          </div>
+
+          <h1 class="post-title">Happy Birthday Sister</h1>
+
+          <!-- Author Info -->
+          <div class="author-card">
+            <div class="avatar">Sai</div>
+            <div class="author-details">
+              <span class="author-name">Sairam</span>
+              <span class="publish-date">Published May 31, 2026</span>
+            </div>
+          </div>
+        </header>
+
+
+        <!-- Post Body Content -->
+        <div class="post-body">
+          <p class="lead">
+            It's kinda funny as to much blackmail I have over you. Kinda weird, that all of my experiences with you have such variance in emotion(to me atleast.)
+          </p>
+
+          <p>
+            I know you probably will, but please keep reading, thats one aspect of you I have a lot of respect for, theres a lot of books you've read that I havent even heard of, everytime I see you talk about them, it kinda inspires me to get back into reading.
+          </p>
+
+          <p>
+            You are strong, and please remain strong, I have immense respect for you as a person, that is probably why we've argued a bunch. I hope we remain in contact in the future my sister.            
+          </p>
+          <figure class="photo-frame" data-placeholder="Add images/image_mog3.jpeg">
+              <img src="images/star.jpeg" alt="Mog 3" loading="lazy" data-optional-image>
+              <figcaption>Dont Die:&#40;</figcaption>
+            </figure>
+          <figure class="photo-frame" data-placeholder="Add images/image_mog3.jpeg">
+            <img src="images/funny.jpeg" alt="Mog 3" loading="lazy" data-optional-image>
+            <figcaption>Story in one picture:&#40;</figcaption>
+          </figure>
+          <figure class="photo-frame" data-placeholder="Add images/image_mog3.jpeg">
+              <img src="images/veganism.jpeg" alt="Mog 3" loading="lazy" data-optional-image>
+              <figcaption>My favourite devout vegetarian brahmin:&#40;</figcaption>
+          </figure>
+        
+          <p>
+            Regards.
+            Sai
+          </p>
+          <p>
+          ps: I've had enough of my mother citing you as an example of a nalla vegetarian ponnu.
+            pps: Don't Die.
+          </p>
+
+      
+     
+       
+        </div>
+
+        <!-- Post Footer Actions (Interactive) -->
+        <footer class="post-footer">
+          <div class="interactive-panel">
+            <button id="like-btn" class="like-button" aria-label="Like post">
+              <i data-lucide="heart" class="heart-icon"></i>
+              <span>Like</span>
+              <span id="like-count" class="count">0</span>
+            </button>
+
+            <button id="share-btn" class="share-button" aria-label="Share post">
+              <i data-lucide="share-2"></i>
+              <span>Share</span>
+            </button>
+          </div>
+
+          <div class="author-github-connect">
+            <a href="https://github.com/janedoe" target="_blank" rel="noopener noreferrer" class="github-btn">
+              <i data-lucide="github"></i>
+              <span>Follow @janedoe</span>
+            </a>
+          </div>
+        </footer>
+
+      </article>
+    </main>
+  </div>
+
+  <!-- Share Toast Alert -->
+  <div id="toast" class="toast hidden">
+    <i data-lucide="check-circle"></i>
+    <span>Link copied to clipboard!</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
