@@ -25,16 +25,62 @@ main {
     gap: 4rem;
 }
 
+#collage-header {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    min-height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
 header h1 {
     font-size: clamp(4rem, 15vw, 10rem);
     font-weight: 400; /* Regular weight, slightly thin */
     text-align: center;
     line-height: 0.8;
-    margin-bottom: 2rem;
     letter-spacing: -0.05em;
     /* Subtle blur effect mimicking the low-res album art */
     text-shadow: 0 0 4px rgba(0,0,0,0.4);
     filter: blur(0.5px);
+    z-index: 10; /* Keep text above the collage track */
+}
+
+#orbit-track {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    animation: spin 20s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes counter-spin {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(-360deg); }
+}
+
+.collage-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* Width of the placeholder images */
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Optional: making them circles looks nice, or leave square */
+    /* Remove border-radius to keep original aspect */
+    margin-bottom: 0; /* Override the default margin */
+    /* We apply counter-spin so they stay upright */
+    animation: counter-spin 20s linear infinite;
+    transform-origin: center center;
 }
 
 section {
