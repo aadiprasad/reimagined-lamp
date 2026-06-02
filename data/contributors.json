@@ -1,10 +1,12 @@
 {
-  "updatedAt": "2026-06-01T17:00:53.709Z",
-  "totalCount": 3,
+  "updatedAt": "2026-06-01T18:28:19.844Z",
+  "totalCount": 4,
   "tags": [
     "Blog",
     "Fanfiction",
     "Images",
+    "ccnsb",
+    "rage",
     "spcrc-wannabe"
   ],
   "submissions": [
@@ -44,6 +46,19 @@
         "Blog"
       ],
       "github": "kavin-aravindan"
+    },
+    {
+      "folderName": "saigum",
+      "path": "contributors/saigum/index.html",
+      "hasIndex": true,
+      "author": "Sairam",
+      "title": "The one you've argued the most with",
+      "description": "I still have your shirt btw",
+      "tags": [
+        "ccnsb",
+        "rage"
+      ],
+      "github": "saigum"
     }
   ]
 }
