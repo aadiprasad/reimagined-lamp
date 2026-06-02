@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-06-01T19:01:57.835Z",
-  "totalCount": 4,
+  "updatedAt": "2026-06-02T02:09:48.904Z",
+  "totalCount": 5,
   "tags": [
     "#birthdaywishes",
     ":pray:",
@@ -8,7 +8,9 @@
     "Blog",
     "Fanfiction",
     "Images",
+    "ccnsb",
     "gender and society",
+    "rage",
     "spcrc-wannabe"
   ],
   "submissions": [
@@ -67,6 +69,20 @@
       ],
       "github": "ubermayinch",
       "avatar": "contributors/chinmay-sharma/avatar.jpeg"
+    },
+    {
+      "folderName": "saigum",
+      "path": "contributors/saigum/index.html",
+      "hasIndex": true,
+      "author": "Sairam",
+      "title": "The one you've argued the most with",
+      "description": "I still have your shirt btw",
+      "tags": [
+        "ccnsb",
+        "rage"
+      ],
+      "github": "saigum",
+      "avatar": ""
     }
   ]
 }
