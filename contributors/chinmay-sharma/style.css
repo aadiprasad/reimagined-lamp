@@ -1,0 +1,358 @@
+/* ═══════════════════════════════════════════════════════════════
+   node.c — Vim Console  |  Chinmay Sharma
+   CSS project — edit freely below
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── Design tokens ────────────────────────────────────────────── */
+:root {
+  /* Background palette (Gruvbox-dark inspired) */
+  --bg-hard:      #1d2021;
+  --bg:           #282828;
+  --bg-soft:      #32302f;
+  --bg-1:         #3c3836;
+  --bg-2:         #504945;
+
+  /* Foreground */
+  --fg:           #ebdbb2;
+  --fg-dim:       #a89984;
+
+  /* Accent colours */
+  --yellow:       #fabd2f;
+  --orange:       #fe8019;
+  --red:          #fb4934;
+  --green:        #b8bb26;
+  --aqua:         #8ec07c;
+  --blue:         #83a598;
+  --purple:       #d3869b;
+
+  /* Gutter */
+  --gutter-bg:    #282828;
+  --gutter-fg:    #7c6f64;   /* line numbers */
+  --gutter-cur:   #fabd2f;   /* current line number */
+  --gutter-w:     3.2rem;
+
+  /* Misc */
+  --font:         'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+  --font-size:    0.88rem;
+  --line-height:  1.65;
+  --radius:       6px;
+}
+
+/* ─── Reset ─────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  background: var(--bg-hard);
+  color: var(--fg);
+  font-family: var(--font);
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+  overflow: hidden;
+}
+
+/* ─── Hub top bar ───────────────────────────────────────────────── */
+.hub-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  height: 2rem;
+  background: var(--bg-hard);
+  border-bottom: 1px solid var(--bg-2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+
+.back-link {
+  color: var(--aqua);
+  text-decoration: none;
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+  transition: color 0.15s;
+}
+.back-link:hover { color: var(--yellow); }
+
+.hub-author {
+  color: var(--gutter-fg);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+}
+
+/* ─── Vim window ────────────────────────────────────────────────── */
+.vim-window {
+  position: fixed;
+  top: 2rem;          /* below hub bar */
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(900px, 98vw);
+  height: calc(100vh - 2rem);
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  border-left: 1px solid var(--bg-2);
+  border-right: 1px solid var(--bg-2);
+  box-shadow: 0 0 60px rgba(0,0,0,0.7);
+  position: relative;  /* anchor for .vim-output absolute positioning */
+}
+
+/* ─── Title bar (fake macOS-ish terminal) ───────────────────────── */
+.vim-titlebar {
+  flex-shrink: 0;
+  height: 2.1rem;
+  background: var(--bg-soft);
+  border-bottom: 1px solid var(--bg-2);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0 0.85rem;
+  user-select: none;
+}
+
+.dot {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.dot-close { background: #ff5f56; }
+.dot-min   { background: #ffbd2e; }
+.dot-max   { background: #27c93f; }
+
+.vim-filename {
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--fg-dim);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+}
+
+/* ─── Editor row (gutter + code) ───────────────────────────────── */
+.vim-editor {
+  flex: 1;
+  display: flex;
+  overflow: hidden;   /* children scroll independently */
+}
+
+/* Gutter ──────────────────────────────────────────────────────── */
+.vim-gutter {
+  flex-shrink: 0;
+  width: var(--gutter-w);
+  background: var(--gutter-bg);
+  border-right: 1px solid var(--bg-1);
+  overflow: hidden;               /* gutter scrolls with code via JS */
+  text-align: right;
+  padding-right: 0.5rem;
+  color: var(--gutter-fg);
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+  user-select: none;
+  /* line numbers rendered by JS */
+}
+
+/* ─── Scrollable code pane ──────────────────────────────────────── */
+.vim-code {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: auto;
+  padding: 0 0 0 0.75rem;
+  outline: none;
+
+  /* Custom scroll bar (WebKit) */
+  scrollbar-width: thin;
+  scrollbar-color: var(--bg-2) transparent;
+}
+.vim-code::-webkit-scrollbar        { width: 6px; }
+.vim-code::-webkit-scrollbar-track  { background: transparent; }
+.vim-code::-webkit-scrollbar-thumb  { background: var(--bg-2); border-radius: 3px; }
+
+/* ─── <pre> source block ────────────────────────────────────────── */
+#vim-pre {
+  font-family: var(--font);
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+  white-space: pre;
+  tab-size: 4;
+  margin: 0;
+  padding: 0;
+  color: var(--fg);
+}
+
+/* ── Current-line highlight ────────────────────────────────────── */
+.vim-line { display: block; }
+.vim-line.active {
+  background: var(--bg-soft);
+  outline: 1px solid var(--bg-1);
+}
+
+/* ─── Syntax tokens ─────────────────────────────────────────────── */
+/* Edit these freely — each token class is named after its role     */
+
+.tok-comment   { color: var(--bg-2);    font-style: italic; }
+.tok-keyword   { color: var(--red);     font-weight: 600;   }
+.tok-type      { color: var(--yellow);  }
+.tok-struct-kw { color: var(--orange);  font-weight: 600;   }
+.tok-name      { color: var(--green);   }
+.tok-field     { color: var(--fg);      }
+.tok-field-type{ color: var(--blue);    }
+.tok-punct     { color: var(--fg-dim);  }
+.tok-number    { color: var(--purple);  }
+.tok-string    { color: var(--green);   }
+.tok-macro     { color: var(--orange);  }
+.tok-func      { color: var(--aqua);    }
+.tok-var       { color: var(--fg);      }
+.tok-op        { color: var(--fg-dim);  }
+.tok-arrow     { color: var(--yellow);  }
+.tok-null      { color: var(--purple);  font-weight: 600; }
+.tok-link      { color: var(--aqua); text-decoration: underline; text-underline-offset: 2px;
+                 cursor: pointer; transition: color 0.15s; }
+.tok-link:hover { color: var(--yellow); }
+.tok-cast      { color: var(--orange);  }
+.tok-plain     { color: var(--fg);      }
+
+/* ─── Status line ───────────────────────────────────────────────── */
+.vim-statusline {
+  flex-shrink: 0;
+  height: 1.55rem;
+  background: var(--bg-1);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0 0.7rem;
+  font-size: 0.76rem;
+  user-select: none;
+  border-top: 1px solid var(--bg-2);
+}
+
+.mode-tag {
+  background: var(--aqua);
+  color: var(--bg-hard);
+  font-weight: 700;
+  padding: 0 0.55rem;
+  border-radius: 2px;
+  letter-spacing: 0.07em;
+  font-size: 0.72rem;
+  transition: background 0.2s;
+}
+
+.status-file { color: var(--fg-dim); flex: 1; }
+.status-right { color: var(--fg-dim); margin-left: auto; }
+
+/* ─── Command line ──────────────────────────────────────────────── */
+.vim-cmdline {
+  flex-shrink: 0;
+  height: 1.35rem;
+  background: var(--bg);
+  padding: 0 0.7rem;
+  font-size: 0.76rem;
+  color: var(--fg-dim);
+  display: flex;
+  align-items: center;
+  border-top: 1px solid var(--bg-1);
+  user-select: none;
+}
+
+/* Blinking block cursor on command line */
+.cursor-block {
+  color: var(--green);
+  animation: blink 1.1s step-start infinite;
+  margin-left: 0.1em;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ─── Scrollbar for Firefox global ─────────────────────────────── */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--bg-2) transparent;
+}
+
+/* ─── Run button ─────────────────────────────────────────────── */
+.run-btn {
+  margin-left: auto;
+  background: var(--green);
+  color: var(--bg-hard);
+  border: none;
+  border-radius: 3px;
+  padding: 0.15rem 0.65rem;
+  font-family: var(--font);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+  flex-shrink: 0;
+}
+.run-btn:hover  { background: var(--aqua); }
+.run-btn:active { transform: scale(0.95); }
+
+/* ─── Output pane ────────────────────────────────────────────── */
+.vim-output {
+  position: absolute;
+  inset: 2.1rem 0 3rem 0;  /* sits inside the vim-window, over the editor */
+  background: var(--bg-hard);
+  border-top: 2px solid var(--green);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.vim-output.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.output-header {
+  flex-shrink: 0;
+  background: var(--bg-1);
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--bg-2);
+}
+.output-label {
+  color: var(--green);
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+  flex: 1;
+}
+.output-close {
+  background: none;
+  border: none;
+  color: var(--fg-dim);
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 0 0.2rem;
+  transition: color 0.15s;
+  font-family: var(--font);
+}
+.output-close:hover { color: var(--red); }
+
+#output-pre {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.75rem 1.2rem;
+  font-family: var(--font);
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+  white-space: pre;
+  color: var(--fg);
+  margin: 0;
+}
+
+/* coloured spans inside output */
+#output-pre .o-dim    { color: var(--fg-dim); }
+#output-pre .o-bar    { color: var(--green);  }
+#output-pre .o-label  { color: var(--yellow); font-weight: 600; }
+#output-pre .o-heart  { color: var(--red);    }
+#output-pre .o-cake   { color: var(--orange); }
+#output-pre .o-hbd    { color: var(--aqua);   font-weight: 700; letter-spacing: 0.06em; }
+#output-pre .o-sub    { color: var(--purple); }

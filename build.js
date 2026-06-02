@@ -41,7 +41,8 @@ try {
       title: `${item.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}`,
       description: 'Custom contributor project page.',
       tags: [],
-      github: ''
+      github: '',
+      avatar: ''
     };
 
     // If metadata.json exists, read and parse it
@@ -56,7 +57,8 @@ try {
           title: parsed.title || metadata.title,
           description: parsed.description || metadata.description,
           tags: Array.isArray(parsed.tags) ? parsed.tags : metadata.tags,
-          github: parsed.github || metadata.github
+          github: parsed.github || metadata.github,
+          avatar: parsed.avatar || metadata.avatar
         };
       } catch (err) {
         console.error(`⚠️ Error parsing metadata.json in ${item}:`, err.message);

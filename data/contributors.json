@@ -1,12 +1,14 @@
 {
-  "updatedAt": "2026-06-01T18:28:19.844Z",
+  "updatedAt": "2026-06-01T19:01:57.835Z",
   "totalCount": 4,
   "tags": [
+    "#birthdaywishes",
+    ":pray:",
+    ":sweat:",
     "Blog",
     "Fanfiction",
     "Images",
-    "ccnsb",
-    "rage",
+    "gender and society",
     "spcrc-wannabe"
   ],
   "submissions": [
@@ -20,7 +22,8 @@
       "tags": [
         "spcrc-wannabe"
       ],
-      "github": "harshvardhan-pandey"
+      "github": "harshvardhan-pandey",
+      "avatar": ""
     },
     {
       "folderName": "harishankar08",
@@ -32,7 +35,8 @@
       "tags": [
         "Fanfiction"
       ],
-      "github": "HariShankar08"
+      "github": "HariShankar08",
+      "avatar": ""
     },
     {
       "folderName": "kavin-aravindan",
@@ -45,20 +49,24 @@
         "Images",
         "Blog"
       ],
-      "github": "kavin-aravindan"
+      "github": "kavin-aravindan",
+      "avatar": ""
     },
     {
-      "folderName": "saigum",
-      "path": "contributors/saigum/index.html",
+      "folderName": "chinmay-sharma",
+      "path": "contributors/chinmay-sharma/index.html",
       "hasIndex": true,
-      "author": "Sairam",
-      "title": "The one you've argued the most with",
-      "description": "I still have your shirt btw",
+      "author": "i am in your walls",
+      "title": "node * vaishnavi shivkumar",
+      "description": "node * vaishnavi Shivkumar = (node*) malloc(sizeof(urmom));",
       "tags": [
-        "ccnsb",
-        "rage"
+        "#birthdaywishes",
+        "gender and society",
+        ":sweat:",
+        ":pray:"
       ],
-      "github": "saigum"
+      "github": "ubermayinch",
+      "avatar": "contributors/chinmay-sharma/avatar.jpeg"
     }
   ]
 }
