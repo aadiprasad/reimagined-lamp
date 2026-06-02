@@ -1,19 +1,40 @@
 {
-  "updatedAt": "2026-06-02T02:09:48.904Z",
-  "totalCount": 5,
+  "updatedAt": "2026-06-02T13:00:54.536Z",
+  "totalCount": 7,
   "tags": [
     "#birthdaywishes",
     ":pray:",
     ":sweat:",
+    "Aesthetics",
+    "Birthday",
     "Blog",
+    "CSS",
+    "Celebration",
     "Fanfiction",
     "Images",
+    "Love",
+    "Responsive",
     "ccnsb",
     "gender and society",
     "rage",
     "spcrc-wannabe"
   ],
   "submissions": [
+    {
+      "folderName": "aadi-aisha",
+      "path": "contributors/aadi-aisha/index.html",
+      "hasIndex": true,
+      "author": "Aadi",
+      "title": "Aadi's CSS Showcase",
+      "description": "A beautiful, premium, and fully responsive CSS layout and aesthetic design playground.",
+      "tags": [
+        "CSS",
+        "Responsive",
+        "Aesthetics"
+      ],
+      "github": "aadi",
+      "avatar": ""
+    },
     {
       "folderName": "harshvardhan-pandey",
       "path": "contributors/harshvardhan-pandey/index.html",
@@ -38,6 +59,21 @@
         "Fanfiction"
       ],
       "github": "HariShankar08",
+      "avatar": ""
+    },
+    {
+      "folderName": "pratishtha",
+      "path": "contributors/pratishtha/index.html",
+      "hasIndex": true,
+      "author": "Pratishtha",
+      "title": "Happy 22nd Birthday, Pratishtha! 🎉",
+      "description": "A heartfelt birthday message celebrating a truly special person turning 22.",
+      "tags": [
+        "Birthday",
+        "Celebration",
+        "Love"
+      ],
+      "github": "pratishtha",
       "avatar": ""
     },
     {
